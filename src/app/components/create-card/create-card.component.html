@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="title mb-3">{{title | uppercase}}
+            <div class="spinner-border float-end" role="status" *ngIf="loading">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </h5>
+        <form [formGroup]="forms" (ngSubmit)="processCard()">
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-circle-user" 
+                    [class.green-icon]="this.forms.get('owner')?.valid"
+                    [class.red-icon]="this.forms.get('owner')?.invalid && this.forms.get('owner')?.touched"
+                    ></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Owner" formControlName="owner">
+            </div>
+            <div class="input-group input-group-lg mb-3">
+                <span class="input-group-text">
+                    <i class="fa-solid fa-credit-card" 
+                    [class.green-icon]="this.forms.get('number')?.valid"
+                    [class.red-icon]="this.forms.get('number')?.invalid && this.forms.get('number')?.touched"
+                    ></i>
+                </span>
+                <input type="text" class="form-control" placeholder="Card number" formControlName="number" maxlength="16" minlength="16">
+            </div>
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-calendar-days" 
+                            [class.green-icon]="this.forms.get('eDate')?.valid"
+                            [class.red-icon]="this.forms.get('eDate')?.invalid && this.forms.get('eDate')?.touched"
+                            ></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="MM/YYYY" formControlName="eDate" maxlength="7" minlength="7"> 
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="input-group input-group-lg mb-3">
+                        <span class="input-group-text">
+                            <i class="fa-solid fa-key" 
+                            [class.green-icon]="this.forms.get('cvv')?.valid"
+                            [class.red-icon]="this.forms.get('cvv')?.invalid && this.forms.get('cvv')?.touched"
+                            ></i>
+                        </span>
+                        <input type="password" class="form-control" placeholder="CVV" formControlName="cvv" maxlength="3" minlength="3">
+                    </div>
+                </div>
+            </div>
+            <div class="d-grid gap-2">
+                <button class="btn btn-primary btn-lg" type="submit" [disabled]="forms.invalid">
+                    <i class="fa-solid fa-database"></i>&nbsp;{{title}}</button>
+              </div>
+        </form>
+    </div>
+</div>

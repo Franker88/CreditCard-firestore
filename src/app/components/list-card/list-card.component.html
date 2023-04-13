@@ -1,0 +1,14 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="title">CARDS LIST</h5>
+        <table class="table">
+            <tr *ngFor="let card of listCards; let i = index">
+                <td>{{card.owner}}</td>
+                <td>{{card.cardNumber}}</td>
+                <td>{{card.eDate}}</td>
+                <td><i class="fa-solid fa-pen-to-square" style="color: rgb(35, 92, 146); cursor: pointer;" (click)="editCard(card)"></i></td>
+                <td><i class="fa-solid fa-trash" style="color: #b13535; cursor: pointer;" (click)="deleteCard(card.id)"></i></td>
+            </tr>
+        </table>
+    </div>
+</div>

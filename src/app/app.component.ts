@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'firebase';
+  title = 'creditCard';
+
+  //firestore: Firestore = inject(Firestore);
+  items$: Observable<any[]> | undefined;
+
+  constructor(){
+    
+  }
 }

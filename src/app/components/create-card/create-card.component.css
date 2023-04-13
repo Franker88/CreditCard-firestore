@@ -1,0 +1,12 @@
+.green-icon {
+    color: rgb(38, 190, 99);
+}
+
+.red-icon{
+    color: rgb(207, 19, 19);
+}
+
+.spinner-border{
+    height: 1.5rem;
+    width: 1.5rem;
+}
